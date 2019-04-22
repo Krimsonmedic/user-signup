@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/register" id="form" method="POST">
+    <h1>Register</h1>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="{{username}}" />
+    <p class="error">{{var1}}</p>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" />
+    <p class="error">{{var2}}</p>
+    <label for="password">Password Again</label>
+    <input type="password" name="password2" id="password2" />
+    <p class="error">{{var3}}</p>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" value="{{email}}"/>
+    <p class="error">{{emailError}}</p>
+    <button type="submit">Register</button>
+  </form>
+
+  {% endblock %}
