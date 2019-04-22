@@ -48,8 +48,8 @@ def register():
         usernameError = "Username is required"
     if not password:
         passwordError = "Password is required"
-    elif len(password) < 5:
-        passwordError = "Password must be at least 5 characters long"
+    elif len(password) < 5 or len(password) > 20:
+        passwordError = "Password must be at least 5 characters long, and no more than 20"
     else:
         hasNumber = False
         for char in password:
