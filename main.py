@@ -57,6 +57,9 @@ def register():
                 hasNumber = True
         if not hasNumber:
             passwordError = "Password must contain a number"
+        for char in password:
+            if char == " ":
+                passwordError = "password cant contain a space"
     if password  != password2:
         password2Error = "Password 2 must match password"
     
