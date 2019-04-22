@@ -46,9 +46,14 @@ def register():
     if not username:
         print("no username")
         usernameError = "Username is required"
+    if len(username) < 3 or len(username) > 20:
+        usernameError = "Usernames must be between 3 and 20 characters"
+    for char in username:
+        if char == " ":
+            usernameError = "usernames cannot contain spaces"
     if not password:
         passwordError = "Password is required"
-    elif len(password) < 5 or len(password) > 20:
+    elif len(password) < 3 or len(password) > 20:
         passwordError = "Password must be at least 5 characters long, and no more than 20"
     else:
         hasNumber = False
@@ -63,31 +68,28 @@ def register():
     if password  != password2:
         password2Error = "Password 2 must match password"
     
-    if not email:
-        emailError = "Email is required"
- 
-    
-    elif len(email) < 5:
-        emailError= "Email must be at least 5 characters long"
+    if email != "":
+        if len(email) < 3:
+            emailError= "Email must be at least 3 characters long"
 
-    else:
-        for char in email:
-            if char == " ":
-                emailError = "There are no spaces in an email"
-        hasAt = 0
-        for char in email:
-            if char == "@":
-                hasAt +=1
+        else:
+            for char in email:
+                if char == " ":
+                    emailError = "There are no spaces in an email"
+            hasAt = 0
+            for char in email:
+                if char == "@":
+                    hasAt +=1
 
-        if hasAt != 1 :
-            emailError = "Email's must contain a single @"
-        hasPeriod = 0
-        for char in email:
-            if char == ".":
-                hasPeriod += 1
+            if hasAt != 1 :
+                emailError = "Email's must contain a single @"
+            hasPeriod = 0
+            for char in email:
+                if char == ".":
+                    hasPeriod += 1
 
-        if hasPeriod !=1:
-            emailError = "Email's must contain a single . "
+            if hasPeriod !=1:
+                emailError = "Email's must contain a single . "
 
 
              
